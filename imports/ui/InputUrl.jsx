@@ -3,8 +3,6 @@ import TextField from 'material-ui/TextField';
 import CancelIcon from 'material-ui/svg-icons/navigation/cancel'
 import IconButton from 'material-ui/IconButton';
 
-const _ = require('underscore');
-
 const iconStyles = {
   marginRight: 24
 };

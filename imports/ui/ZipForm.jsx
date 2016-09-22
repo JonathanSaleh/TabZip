@@ -3,7 +3,7 @@ import InputUrl from './InputUrl';
 import AddUrlBtn from './AddUrlBtn'
 import ZipBtn from './ZipBtn';
 import { Meteor } from 'meteor/meteor';
-const _ = require('underscore');
+import {browserHistory} from 'react-router';
 
 class ZipForm extends Component {
   constructor() {
@@ -36,7 +36,10 @@ class ZipForm extends Component {
     this.setState({urls: newUrls});
   }
   handleZipIt() {
-    Meteor.call('zips.zipUp', this.state.urls);
+    Meteor.call('zips.zipUp', this.state.urls, function(err, result){
+      newUrl = '/' + result;
+      browserHistory.push(newUrl);
+    });
   }
   render() {
     var InputUrls = _.map(this.state.urls, function(url, index){

@@ -7,8 +7,8 @@ export const Zips = new Mongo.Collection('zips');
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish('zips', function tasksPublication() {
-    return zips.find();
+  Meteor.publish('zips', function tasksPublication(tag) {
+    return Zips.find({tag: tag});
   });
 }
 
@@ -20,13 +20,12 @@ Meteor.methods({
     while(result == 'undefined'){
       tag = randomstring.generate(5)
       result = Zips.find({tag: tag}).fetch();
-      console.log(result);
     }
-    console.log(tag)
-    Zips.insert({
+    newEntryId = Zips.insert({
       tag,
       urls,
       createdAt: new Date(),
     });
+    return Zips.findOne({_id: newEntryId}).tag;
   }
 });
