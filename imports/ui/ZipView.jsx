@@ -12,6 +12,7 @@ class ZipView extends Component {
     let urlViews;
     if(this.props.ready){
       urlViews = _.map(this.props.urls, function(url, index){
+        url = url.match(/^http[s]*:\/\//) ? url : 'http://' + url;
         return <UrlView key={index} index={index} value={url} />
       }, this)
     }else{
