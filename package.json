@@ -19,6 +19,7 @@
     "randomstring": "^1.1.5",
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",
+    "react-copy-to-clipboard": "^4.2.3",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
     "react-routing": "0.0.7",

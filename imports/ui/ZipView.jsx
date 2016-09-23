@@ -1,6 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 import UrlView from './UrlView';
-import OpenUrlsBtn from './OpenUrlsBtn'
+import CopyToClipboardBtn from './CopyToClipboardBtn'
 import { Meteor } from 'meteor/meteor';
 
 class ZipView extends Component {
@@ -30,7 +30,7 @@ class ZipView extends Component {
     return (
       <div>
         {UrlViews}
-        <OpenUrlsBtn urls={this.props.urls} openAllUrls={this.openAllUrls} />
+        <CopyToClipboardBtn url={window.location.href} />
       </div>
     );
   }
